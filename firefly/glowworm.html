@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>萤火虫</title>
+		<style type="text/css">
+			body{
+				background: #666;
+			}
+			body div{
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				border: 0px solid rgba(255,255,0,1);
+				background: yellowgreen;
+				color: white;
+				text-align: center;
+				line-height: 30px;
+				animation: anim 3s linear infinite;
+			}
+			@keyframes anim{
+				from{}
+				to{
+					border: 30px solid rgba(255,255,0,0);
+					opacity: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript" src="js/jquery-1.11.0.js" charset="UTF-8" ></script>
+	<script type="text/javascript">
+		var totle = 100;
+		for(var i=0; i<totle; i++) {
+			var worm = new GlowWorm();
+			worm.randomPoint().show().randomPoint().fly();
+		}
+		
+		
+		function GlowWorm () {
+			this.div = $("<div>M</div>");
+			this.top = 0;
+			this.left = 0;
+			
+			this.show = function() {
+				var w = Math.random()*20+10;
+				this.div.css({
+					"top":this.top,
+					"left":this.left,
+					"width": w,
+					"height": w,
+					"background": "rgb("+Math.round(Math.random())*255+","+Math.round(Math.random())*255+","+Math.round(Math.random())*255+")"
+				});
+				$("body").append(this.div);
+				return this;
+			}
+			
+			this.randomPoint = function() {
+				this.top = Math.random()*(window.innerHeight-100);
+				this.left = Math.random()*(window.innerWidth-100);
+				return this;
+			}
+			
+			this.fly = function() {
+				var that = this;
+				this.div.animate({
+					"top": this.top,
+					"left": this.left
+				}, (Math.random()*10+5)*1000, function() {
+					that.randomPoint().fly();
+				});
+				return this;
+			}
+		}
+		
+		
+	</script>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>tomcat</title>
+		<link type="image/x-icon" rel="shortcut icon" href="img/Animations/angry/angry_00.jpg" />
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			html, body, #cat{width: 100%;height: 100%;}
+			#fart{
+				position: absolute;
+				left: 630px;
+				top: 320px;
+				width: 160px;
+				height: 160px;
+				border-radius: 50%;
+				/*background: yellow;*/
+			}
+			#knockout{
+				position: absolute;
+				left: 330px;
+				top: 310px;
+				width: 300px;
+				height: 100px;
+				/*background: blue;*/
+			}
+			#pieLeft{
+				position: absolute;
+				left: 530px;
+				top: 440px;
+				width: 110px;
+				height: 110px;
+				/*background: red;*/
+				border-radius: 50%;
+			}
+			#pieRight{
+				position: absolute;
+				left: 350px;
+				top: 440px;
+				width: 110px;
+				height: 110px;
+				/*background: red;*/
+				border-radius: 50%;
+			}
+			#drink{
+				position: absolute;
+				left: 350px;
+				top: 680px;
+				width: 150px;
+				height: 100px;
+				/*background: yellow;*/
+			}
+			#eat{
+				position: absolute;
+				left: 500px;
+				top: 680px;
+				width: 150px;
+				height: 100px;
+				/*background: blue;*/
+			}
+			
+			#cymbal{
+				position: absolute;
+				left: 650px;
+				bottom: 550px;
+				width: 70px;
+				height: 180px;
+				/*background: yellow;*/
+			}
+			#scratch{
+				position: absolute;
+				left: 250px;
+				bottom: 550px;
+				width: 100px;
+				height: 220px;
+				/*background: yellow;*/
+			}
+			
+			#angry{
+				position: absolute;
+				left: 335px;
+				bottom: 550px;
+				width: 300px;
+				height: 130px;
+				/*background: yellow;*/
+			}
+			#stomach{
+				position: absolute;
+				left: 340px;
+				bottom: 230px;
+				width: 300px;
+				height: 300px;
+				/*background: green;*/
+				border-radius: 50%;
+			}
+			
+			#footLeft{
+				position: absolute;
+				left: 520px;
+				bottom: 70px;
+				width: 80px;
+				height: 80px;
+				/*background: red;*/
+				border-radius: 50%;
+			}
+			#footRight{
+				position: absolute;
+				left: 350px;
+				bottom: 70px;
+				width: 80px;
+				height: 80px;
+				/*background: red;*/
+				border-radius: 50%;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<img id="cat" width="414" height="736" src="img/Animations/angry/angry_00.jpg"/>
+		
+		<!--face-->
+		<div id="fart"></div>
+		<div id="knockout"></div>
+		<div id="drink"></div>
+		<div id="eat"></div>
+		<div id="pieLeft"></div>
+		<div id="pieRight"></div>
+		<!--hand-->
+		<div id="cymbal"></div>
+		<div id="scratch"></div>
+		<!--body-->
+		<div id="angry"></div>
+		<div id="stomach"></div>
+		<!--foot-->
+		<div id="footLeft"></div>
+		<div id="footRight"></div>
+	</body>
+	<script type="text/javascript">
+		(function(){
+			document.getElementById("fart").onclick = function() {
+				playAnim("fart",27);
+			}
+			document.getElementById("knockout").onclick = function() {
+				playAnim("knockout",80);
+			}
+			document.getElementById("pieLeft").onclick = function() {
+				playAnim("pie",23);
+			}
+			document.getElementById("pieRight").onclick = function() {
+				playAnim("pie",23);
+			}
+			document.getElementById("drink").onclick = function() {
+				playAnim("drink",80);
+			}
+			document.getElementById("eat").onclick = function() {
+				playAnim("eat",39);
+			}
+			
+			document.getElementById("cymbal").onclick = function() {
+				playAnim("cymbal",12);
+			}
+			document.getElementById("scratch").onclick = function() {
+				playAnim("scratch",55);
+			}
+			
+			document.getElementById("angry").onclick = function() {
+				playAnim("angry",25);
+			}
+			document.getElementById("stomach").onclick = function() {
+				playAnim("stomach",33);
+			}
+			
+			document.getElementById("footLeft").onclick = function() {
+				playAnim("footLeft",29);
+			}
+			document.getElementById("footRight").onclick = function() {
+				playAnim("footRight",29);
+			}
+			var time;
+			function playAnim(part,sum) {
+				clearInterval(time);
+				var i = 0;
+				time = setInterval(function(){
+					if(i>sum){
+						return ;
+					}
+					if(i<10){ i="0"+i}
+					document.getElementById("cat").src = "img/Animations/"+part+"/"+part+"_"+i+".jpg";
+					i++;
+				},100);
+			}
+			
+		})()
+	</script>
+</html>
